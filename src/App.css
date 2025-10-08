@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Mozilla+Text:wght@200..700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+html{
+  color-scheme: light !important; 
+}
+
+#root {
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Mozilla Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+select{ 
+  border: 1px transparent solid !important;
+}
+
+select:hover, 
+div select:hover,
+button:hover{
+  border: 1px #646cff solid;  
+  transition: border-color 0.25s;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+ 
+body::before {
+  content: "";
+  position: fixed; 
+  inset: 0; 
+  background: radial-gradient(circle,rgb(42, 12, 57) 0%, rgb(3, 14, 28) 100%);
+  background: url('./assets/fkn.jpg') center/50% no-repeat;
+  background-size: cover;
+  opacity: 0.9;  
+  z-index: -1;  
+}
+
+
+.card {
+  padding: 2em;
+}
+
+header{
+  flex: 0 0 auto;
+  padding: 1rem;
+  color: #ffffff;
+  h1{
+    font-family: "Rubik", sans-serif;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 500;  
+  }
+}
+  
+main{
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 2rem;
+  display: flex; 
+  justify-content: flex-start;
+  align-items: flex-start;  
+  overflow: hidden;  
+  box-sizing: border-box;
+  gap: 1.5rem
+}
+
+#flight-app{
+  display: flex;   
+  justify-content: space-between;
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+.add-new-flight{
+  margin: 0 auto 16px;
+  width: 100%;
+}
+
+.new-flight-modal{
+  width: 30vw;
+  padding: 24px 32px 24px 24px;
+  position: relative;
+  button.modal-close {
+    position: absolute;
+    top: 0;
+    right: 10px;    
+    border: none;
+    background: none;
+    font-size: 24px;
+    padding: 16px;
+    line-height: 100%;
+    &:hover{
+      border: none;
+      background: none; 
+    }
+  }
+  button[type="submit"]{
+    width: 100%;
+    margin-top: 24px;
+    background-color: #646cff;
+    color: #ffffff;
+  }
+}
+
+.custom-input{
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  &:not(:first-child){
+    margin-top: 1rem;
+  }
+  *{
+    flex: 1;
+    text-align: left;
+  }
+}
+
+.text-white{
+  color: #ffffff;
+}
+
+@import "tailwindcss";

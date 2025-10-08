@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+    /*--color-flight-item-bg: #01143e; 
+    --color-flight-item-border: #25214b; 
+    --color-flight-item-text: #5e68b6;*/
+    --color-flight-item-bg: #ffffff36;
+    --color-flight-item-border: #2f2f2f;
+    --color-flight-details-bg: #191126;
+}
+ 
+@keyframes pulse {
+  0% {
+    border-color: #4ea7f5; 
+  }
+  50% {
+    border-color: #4b86c9; 
+  }
+  100% {
+    border-color: #00129b; 
+  }
+}
+ 
+.flight-log{
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+}
+/*
+.flight-list{
+    list-style-type: none;
+    padding: 0 20px 0 0;
+    width: 30vw;
+    min-height: 0;
+    max-height: 72vh;
+    overflow-y: auto;  
+    display: flex;
+    flex-direction: column;  
+    margin: 0; 
+}
+*/
+#flight-main{
+    width: 70vw;
+}
+
+.flight-list{ 
+    list-style-type: none;
+    padding: 2rem;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0; 
+}
+
+#flight-items{ 
+    min-height: 0;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto; 
+}
+
+.flight-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;   
+}
+
+.flight-route{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    p{
+        font-size: 12px;
+        margin: 0;
+        padding: 8px 12px;
+        line-height: 100%;
+        font-weight: bold;
+        background:#18031c;
+        border-radius: 50px;
+        color: #ffffff;
+    }
+    p:first-child{
+        margin-right: 8px; 
+        position: relative;
+        &:after{
+            content: "";
+            display: block;
+            height: 2px; 
+            width: 15px;
+            background: #18031c;
+            position: absolute; 
+            position: absolute;
+            right: -9px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    } 
+    p:last-child{
+        background: #fff;
+        border: 1px #18031c solid;
+        color: #18031c;
+    }
+}
+
+.flight-item{
+    padding: 14px;
+    background-color: var(--color-flight-item-bg);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    text-align: left;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.flight-item.selected{
+    border-color: #59a9f0;
+    /*background: linear-gradient(180deg,rgb(86, 34, 138) 0%, #002064 100%);*/
+    /*background: linear-gradient(180deg,rgb(34, 63, 138) 0%, #002064 100%);*/
+    /*
+    background: linear-gradient(180deg,rgba(34, 63, 138, 0.43) 0%, #00206457 100%);
+    color: #fff; 
+    animation: pulse 2s infinite ease-in-out;
+    */
+    background: linear-gradient(180deg,rgb(71, 73, 219) 0%, #230c57db 100%);
+    color: #fff;
+    animation: pulse 2s infinite ease-in-out;
+    .status-wrapper{
+        button{
+            background: #fff;
+            border: 1px solid #fff;
+            color: #18031c;
+        }
+    } 
+}
+
+.flight-item:not(:last-child){
+    margin-bottom: 16px;
+}
+
+.flight-item h2{
+    margin: 0 0 8px;
+}
+
+.flight-item p{
+    margin: 4px 0;
+}
+
+
+@keyframes flip-horizontal {
+  0%   { transform: rotateY(0); }
+  100% { transform: rotateY(180deg); }
+}
+
+
+.flight-details{
+    width: 25vw;
+    padding: 20px;
+    /*background: linear-gradient(180deg,rgb(16, 14, 47) 0%, rgb(0, 32, 100) 100%);*/
+    background: #0000001f;
+    /*background: #000000bd url('../assets/map-bg.png') no-repeat center;*/
+    background-size: 70%; 
+    border-radius: 15px;
+    text-align: left;
+    color: #ffffff;
+    transition: transform .4s ease;
+    border: 2px solid #ffffff3b;
+    position: relative;
+    button{
+        width: 100%;
+        border-radius: 50px;
+        background: #00000095;
+        color: #ffffff;
+        margin-top: 40px;
+    }
+    h2{
+        margin: 0;
+        padding-bottom: 8px;
+    }
+    .checked{  
+        .show{  
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        .hide{  
+            opacity: 0; 
+        }
+    }
+
+}
+
+.flight-route-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    i{
+        flex: .2;
+        text-align: center;
+    }
+}
+
+#flights-dropdown{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    label{
+        font-size: 11px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: #ffffff;
+    }
+    select{
+        font-size: 12px;
+        width: 100px;
+        border-radius: 50px;
+        background: #ffffff75;
+        color: #000;
+        border: none;
+        padding: 4px 16px 4px 12px;
+    }
+}
+
+.status-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span{
+        display: flex;
+        align-items: center; 
+    }
+    button{
+        font-size: 12px;
+        background: #0000001f;
+        border: 1px solid #0000001f;
+        border-radius: 50px;
+        color: inherit;
+        cursor: pointer;
+        padding: 4px 8px; 
+        transition: background 0.3s;
+        font-weight: 700;
+        white-space: nowrap; 
+    }
+    input{
+        background: transparent;
+        color: #ffffff;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px solid var(--color-flight-item-border); 
+        padding: 6px 8px; 
+        width: 40%;
+        margin-left: 4px;
+    }
+    &.editing{
+        input{ 
+            border-bottom: 1px solid #ffffff;
+            font-size: 16px;
+            padding: 0 0 4px 0;
+        }
+    }
+}
+
+.ground-status{
+    font-size: 12px;
+    text-transform: uppercase;
+    .ground-status-content{ 
+        transition: all 0.3s ease;
+    }
+    &.closed{
+        .ground-status-content{
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .arrow{
+            transform: rotate(45deg);
+        }
+    }
+    .ground-status-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
+    .arrow{ 
+        width: 2px;
+        height: 2px;
+        border: solid #ffffff;
+        border-width: 0 2px 2px 0;
+        padding: 2px;
+        background: transparent;
+        cursor: pointer;
+        transform: rotate(225deg);
+        transition: transform 0.2s ease;
+    }
+}
+
+#ground-status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px;
+    background: #0003;
+    border-radius: 50px; 
+    button{
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        color: #000000;
+        font-size: 20px;
+        padding: 4px;
+        border-radius: 50px;
+        min-width: 30px;
+        min-height: 30px;
+        width: 30px;
+        height: 30px;
+        line-height: 100%;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        &:disabled{
+            background: #ffffff75;
+            border: 1px solid transparent;
+            color: #00000075;
+            cursor: not-allowed;
+        }
+    }
+}
+
+#filter,
+#filter-list{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+  
+#filter{  
+    justify-content: space-between;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #ffffff;
+    button{
+        text-transform: uppercase;
+        border-radius: 50px;
+        padding: 4px 12px;
+        background: #ffffff75; 
+    }
+    #filter-label{
+        margin-right: 4px;
+        color: #ffffff;
+    }
+    .filter-item{
+        font-size: 11px;
+        margin: 0 0 0 8px;
+        padding: 5px 10px;
+        line-height: 100%;
+        font-weight: bold;
+        background: #020db0;
+        border-radius: 50px;
+        color: #ffffff;
+        &.arrival-item{
+            background: #fff;
+            border: 1px #18031c solid;
+            color: #18031c;
+        }
+    }
+} 
+
+#airline-flights{
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    > * {
+        width: 100%;
+    }
+}
+
+.flight-items-scroll{
+    min-height: 0;
+    max-height: calc(69vh - 18px);
+    overflow-y: auto;
+}
